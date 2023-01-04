@@ -1,0 +1,566 @@
+.input-container{
+	width: 50%;
+}
+.input-container .MuiRadio-root{
+	padding: 2px !important;
+}
+.input-container-3{
+	width: 32.9%;
+}
+.input-container-4{
+	width: 24.6%;
+}
+.input-container-5{
+	width: 65%;
+}
+.input-container-6{
+	width: 57%;
+}
+
+.input-container-7{
+	width: 45%;
+}
+.input-container .MuiFormControl-root{
+	width: 98%;
+}
+.input-container .MuiInput-root{
+	width: 98%;
+}
+.select-disabled-container{
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+.Mui-disabled{
+	cursor: not-allowed !important;
+}
+.input-helper-text{
+	height: 15px;
+}
+.submit-container{
+	padding: 10px;
+	width: 100%;
+	position: relative;
+	box-sizing: border-box;
+}
+.submit-container button{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.button-progress{
+	position: absolute;
+}
+
+.modal-header{
+	padding: 5px 0px 5px 15px;
+}
+
+.modal-header-unassign{
+	padding: 15px 0px 15px 15px;
+}
+
+.modal-header-dahboard{
+	padding: 5px 0px 5px 15px;
+}
+
+
+.modal-header-dahboard-mobile{
+	padding: 5px 0px 5px 15px;
+	height: 7%;
+	width: 98%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	align-content: center;
+}
+
+.page-title{
+	height: 10%;
+	padding: 2px 15px;
+	box-sizing: border-box;
+}
+.page-title-list{
+	height: 10%;
+	padding: 2px 15px;
+	box-sizing: border-box;
+}
+.page-content{
+	height: 90%;
+	padding: 5px;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.visual-hidden{
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0px;
+	position: absolute;
+	top: 20px;
+	width: 1px;
+}
+
+.select-native-material{
+	height: 85%;
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: white;
+	font-size: 1rem;
+	min-width: 20%;
+	max-width: 20%;
+	max-height: 50px;
+	padding: 0px 15px;
+}
+
+.user-partner-dropdown{
+	min-width: 15% !important;
+	max-width: 15% !important;
+}
+
+.select-native-material-alerts{
+	height: 85%;
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: white;
+	font-size: 1rem;
+	min-width: 14%;
+	max-width: 14%;
+	width: 14%;
+	max-height: 50px;
+	padding: 0px 15px;
+}
+
+.select-native-material-list{
+	height: 85%;
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: white;
+	font-size: 1rem;
+	min-width: 170px;
+	max-width: 410px;
+	max-height: 50px;
+	padding: 0px 15px;
+}
+
+.select-native-material span{
+	line-height: 3;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.select-native-material-alerts span{
+	line-height: 1;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.select-native-material-list span{
+	line-height: 1;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.input-container-full-width{
+	width: 100%;
+}
+.site-preview{
+	width: 100%;
+}
+.show-usage-details{
+	text-decoration: underline;
+	cursor: pointer;
+}
+.apexcharts-canvas{
+	overflow: hidden;
+	padding: 0px 15px;
+}
+.loading-popup-container{
+	min-width: 400px;
+	min-height: 250px;
+}
+.chart-title{
+	width: 100%;
+}
+.chart-info{
+	font-size: 12px;
+	color: gray;
+}
+
+.agency-selector .MuiMenu-paper{
+	min-width: 170px;
+}
+.multiple-select-chip{
+	margin: 2px;
+}
+.image-preview{
+	height: 70px;
+	width: 70px;
+	margin-left: 15px;
+}
+.image-preview-close-fab{
+	max-width: 15px;
+	min-width: 15px !important;
+    font-size: 1em !important;
+    max-height: 1% !important;
+    min-height: 20% !important;
+    margin-left: -1% !important;
+    margin-top: -0.9% !important;
+	background-color: #009ad9;
+}
+.image-preview-close-icon{
+	max-width: 15px;
+	font-size: 1em !important;
+}
+
+.addSiteButtonAligment{
+	margin-left: 15px !important;
+}
+
+.loading{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(16, 16, 16, 0.5);
+	z-index: 100;
+}
+
+.float-right{
+	float: right;
+}
+.view-dashboard-icon{
+	visibility: hidden;
+	display: none;
+}
+.alert-button{
+	width: 10%;
+	text-align: center;
+}
+  @-webkit-keyframes uil-ring-anim {
+	0% {
+	  -ms-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	100% {
+	  -ms-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -webkit-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+  }
+  @-webkit-keyframes uil-ring-anim {
+	0% {
+	  -ms-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	100% {
+	  -ms-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -webkit-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+  }
+  @-moz-keyframes uil-ring-anim {
+	0% {
+	  -ms-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	100% {
+	  -ms-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -webkit-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+  }
+  @-ms-keyframes uil-ring-anim {
+	0% {
+	  -ms-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	100% {
+	  -ms-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -webkit-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+  }
+  @-moz-keyframes uil-ring-anim {
+	0% {
+	  -ms-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	100% {
+	  -ms-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -webkit-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+  }
+  @-webkit-keyframes uil-ring-anim {
+	0% {
+	  -ms-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	100% {
+	  -ms-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -webkit-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+  }
+  @-o-keyframes uil-ring-anim {
+	0% {
+	  -ms-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	100% {
+	  -ms-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -webkit-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+  }
+  @keyframes uil-ring-anim {
+	0% {
+	  -ms-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	100% {
+	  -ms-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -webkit-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+  }
+  .uil-ring-css {
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 200px;
+	height: 200px;
+  }
+  .uil-ring-css > div {
+	position: absolute;
+	display: block;
+	width: 160px;
+	height: 160px;
+	top: 20px;
+	left: 20px;
+	border-radius: 80px;
+	box-shadow: 0 6px 0 0 #ffffff;
+	-ms-animation: uil-ring-anim 1s linear infinite;
+	-moz-animation: uil-ring-anim 1s linear infinite;
+	-webkit-animation: uil-ring-anim 1s linear infinite;
+	-o-animation: uil-ring-anim 1s linear infinite;
+	animation: uil-ring-anim 1s linear infinite;
+  }
+
+@media only screen and (max-width:960) and (orientation : landscape){
+	.select-native-material{
+		min-width: 20% !important;
+		font-size: 12px !important;
+	}
+	.select-native-material-alerts{
+		min-width: 12% !important;
+		font-size: 12px !important;
+	}
+	.select-native-material-list {
+		min-width: 115px;
+	}
+}
+
+@media only screen and (max-width:768px){
+	.select-native-material{
+		min-width: 20%;
+		font-size: 12px;
+	}
+	.site-dropdown{
+		min-width: 30% !important;
+	}
+	.site-search{
+		width: 30%;
+	}
+	.select-native-material-alerts{
+		min-width: 12%;
+		max-width: 12%;
+		width: 12%;
+		font-size: 12px;
+		max-height: 50px;
+	}
+	.select-native-material-list{
+		min-width: 130px;
+		font-size: 12px;
+	}
+}
+
+@media only screen and (max-width:640px){
+	.alert-button{
+		width: 24%;
+	}
+	.select-native-material{
+		width: 45%;
+		max-width: 30%;
+	}
+	.site-dropdown{
+		width: 90% !important;
+		max-width: 75% !important;
+	}
+	.select-native-material-alerts{
+		width: 45%;
+		max-width: 35%;
+		max-height: 40px;
+	}
+	.site-alerts{
+		width: 100% !important;
+		max-width: 83% !important;
+	}
+	.select-native-material-list{
+		width: 50%;
+		max-width: 130px;
+	}
+	.loading-popup-container{
+		min-width: 250px;
+		min-height: 250px;
+	}
+	.input-container{
+		width: 100% !important;
+	}
+	.icon-size{
+		padding: 8px !important;
+	}
+	.view-dashboard-icon{
+		visibility: visible;
+		display: flex;
+		width: 10%;
+	}
+	.modal-header-dahboard{
+		padding: 5px 0px 5px 15px;
+		font-size: 12px;
+	}
+
+	.modal-header-dahboard-mobile{
+		height: 20%;
+		padding: 5px 0px 5px 15px;
+		font-size: 12px;
+		width: 100%;
+	}
+	
+}
+@media only screen and (max-width:400px){
+	.site-alerts{
+		max-width: 81% !important;
+	}
+	.site-dropdown{
+		max-width: 74% !important;
+	}
+	.loading-popup-container{
+		min-width: 250px;
+		min-height: 250px;
+	}
+	.select-native-material{
+		max-width:100px;
+	}
+	.select-native-material-alerts{
+		max-width:106px;
+		max-height: 30px;
+	}
+	.select-native-material-list{
+		max-width: 115px;
+	}
+	.icon-size{
+		padding: 6px !important;
+	}
+	.alert-button{
+		width: 26%;
+	}
+}
+@media only screen and (max-width:320px){
+	.site-alerts{
+		max-width: 81% !important;
+	}
+	.site-dropdown{
+		max-width: 75% !important;
+	}
+	.select-native-material{
+		max-width: 100;
+		width: 30%;
+	}
+	.select-native-material-alerts{
+		max-width: 100;
+		width: 30%;
+	}
+	.select-native-material-list{
+		max-width: 90px;
+		font-size: 11px;
+	}
+	.icon-size{
+		padding: 4px !important;
+	}
+	.alert-button{
+		width: 31%;
+	}
+}
+.listtextwidth150{
+	width: 140px;
+	margin: 2px;
+	/* word-break: break-all; */
+}
+
+.text-uppercase .MuiAutocomplete-input{
+	text-transform: uppercase;
+}
+
+.phoneNumberLabel .MuiFormControl-root .MuiInputLabel-formControl{
+    font-size: 15px !important;
+}
+
+.siteDetailsHeader{
+	width: 95%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.siteDetailsClose{
+	width: 5%;
+}
