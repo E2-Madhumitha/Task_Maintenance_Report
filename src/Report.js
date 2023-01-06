@@ -60,18 +60,46 @@ function Report() {
     const [selectedValue2, setSelectedValue2] = useState("");
     const [selectedValue3, setSelectedValue3] = useState("");
     const [selectedValue4, setSelectedValue4] = useState("");
+    const [showInvalidInputError_12, setShowInvalidInputError_12] = useState(false);
+    const [showError_12, setShowError_12] = useState(false);
     const [error, seterror] = useState({});
+    const [errorMsgFields, setErrorMsgFields] = useState({
+		"mandatoryErrorMsg": "This field is required",
+		"invalidIntegerInput": "Only numbers are allowed",
+		"invalidDecimalInput": "Only numbers are allowed",
+		"invalidPhoneInput": "Enter valid phone number",
+		"invalidLocationInput": "Only numbers are allowed",
+		"maxImageCountExceeded": "Only up to 4 images are allowed",
+		"invalidImageInput": "Upload file(s) in JPG, PNG, JPEG, GIF, AVIF, WEBP formats",
+	})
     const openAddReport = async () => {
         try {
             setShowmaintenanceForm(true);
         } catch (err) {}
     };
+    useEffect(async () => {
+		try {
+            let errorMessageFields = errorMsgFields;
+			setErrorMsgFields({ ...errorMessageFields });
+			
+		} catch (err) {
+
+		}
+	}, []);
     const handleChangeDisplayPage = async (event, value) => {
         try {
             event.preventDefault();
             setDisplayPage(value);
         } catch (err) {}
     };
+    const validatePhoneNumber = async (value) => {
+		try {
+			let regex = /^[\+]?[\+[0-9]{0,5}]?[. -]?[({]?[0-9]{0,10}[)}]?[-\s\.{}]?[({]?[0-9]{0,10}[})]?[-\s\.{}]?[({]?[0-9]{4,15}?[})]?[-. ]?[0-9]{0,20}$/
+			return regex.test(value);
+		} catch (err) {
+
+		}
+	}
     const handlechange = (event) => {
         setSelectedValue(event.target.value);
     };
@@ -154,12 +182,28 @@ function Report() {
             console.log(inputvalue6);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue7 = async (event) => {
+    const handleChangeDisplayvalue7 = async (question_id,event) => {
         try {
             event.preventDefault();
 
             const value = event.target.value;
             setinputvalue7(value);
+            if (question_id == 12) {
+                if(validatePhoneNumber(value)){
+                    if (question_id == 12) {
+						setShowInvalidInputError_12(true);
+					}
+                } else {
+                    setShowInvalidInputError_12(false);
+                }
+            }
+            if (question_id == 12) {
+                if (value && value != "") {
+                    setShowError_12(false);
+                } else {
+                    setShowError_12(true);
+                }
+            }
             console.log(inputvalue7);
         } catch (err) {}
     };
@@ -589,8 +633,10 @@ function Report() {
                                                 customClassName={"width-50"}
                                                 style={{ display: "block" }}
                                                 value={inputvalue7}
+                                                errorMessage={showError_12 ? errorMsgFields.invalidPhoneInput : errorMsgFields.invalidPhoneInput} 
+                                                showError={ showError_12|| showInvalidInputError_12}
                                                 handleSelectValueChange={(e) =>
-                                                    handleChangeDisplayvalue7(e)
+                                                    handleChangeDisplayvalue7(12,e)
                                                 }
                                             />
                                         </div>
