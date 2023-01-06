@@ -23,7 +23,6 @@ import MuiDialogContent from "@material-ui/core/DialogContent";
 import Select from "./Select";
 import Input from "./Input";
 function Report() {
-   
     const [showmaintenanceForm, setShowmaintenanceForm] = useState(false);
     const [displayPage, setDisplayPage] = useState(0);
     const [reportType, setReportType] = useState(1);
@@ -32,17 +31,36 @@ function Report() {
     const [status3, setStatus3] = useState(0);
     const [status4, setStatus4] = useState(0);
     const [status5, setStatus5] = useState(0);
-    const[inputvalue,setinputvalue]=useState("");
-    const[inputvalue1,setinputvalue1]=useState("");
-    const[inputvalue2,setinputvalue2]=useState("");
+    const [inputvalue, setinputvalue] = useState("");
+    const [inputvalue1, setinputvalue1] = useState("");
+    const [inputvalue2, setinputvalue2] = useState("");
+    const [inputvalue3, setinputvalue3] = useState("");
+    const [inputvalue4, setinputvalue4] = useState("");
+    const [inputvalue5, setinputvalue5] = useState("");
+    const [inputvalue6, setinputvalue6] = useState("");
+    const [inputvalue7, setinputvalue7] = useState("");
+    const [inputvalue8, setinputvalue8] = useState("");
+    const [inputvalue9, setinputvalue9] = useState("");
+    const [inputvalue10, setinputvalue10] = useState("");
+    const [inputvalue11, setinputvalue11] = useState("");
+    const [inputvalue12, setinputvalue12] = useState("");
+    const [inputvalue13, setinputvalue13] = useState("");
+    const [inputvalue14, setinputvalue14] = useState("");
+    const [inputvalue15, setinputvalue15] = useState("");
+    const [inputvalue16, setinputvalue16] = useState("");
+    const [inputvalue17, setinputvalue17] = useState("");
+    const [inputvalue18, setinputvalue18] = useState("");
+    const [inputvalue19, setinputvalue19] = useState("");
+    const [inputvalue20, setinputvalue20] = useState("");
+    const [inputvalue21, setinputvalue21] = useState("");
+    const [inputvalue22, setinputvalue22] = useState("");
+    const [inputvalue23, setinputvalue23] = useState("");
     const [selectedValue, setSelectedValue] = useState("");
     const [selectedValue1, setSelectedValue1] = useState("");
     const [selectedValue2, setSelectedValue2] = useState("");
     const [selectedValue3, setSelectedValue3] = useState("");
     const [selectedValue4, setSelectedValue4] = useState("");
-    const [showInvalidInputError_1, setShowInvalidInputError_1] = useState(false);
-    const[error,seterror]=useState({})
-    const[details,setDetails]=useState({})
+    const [error, seterror] = useState({});
     const openAddReport = async () => {
         try {
             setShowmaintenanceForm(true);
@@ -56,41 +74,237 @@ function Report() {
     };
     const handlechange = (event) => {
         setSelectedValue(event.target.value);
-      };
-      const handlechange1 = (event) => {
+    };
+    const handlechange1 = (event) => {
         setSelectedValue1(event.target.value);
-      };
-      const handlechange2 = (event) => {
+    };
+    const handlechange2 = (event) => {
         setSelectedValue2(event.target.value);
-      };
-      const handlechange3 = (event) => {
+    };
+    const handlechange3 = (event) => {
         setSelectedValue3(event.target.value);
-      };
-      const handlechange4 = (event) => {
+    };
+    const handlechange4 = (event) => {
         setSelectedValue4(event.target.value);
-      };
-    const handleChangeDisplayvalue =  (event) => {
+    };
+    const handleChangeDisplayvalue = (event) => {
         try {
             event.preventDefault();
-            const name=event.target.name;
-            const value=event.target.value;
-            setinputvalue (value);
+            const name = event.target.name;
+            const value = event.target.value;
+            setinputvalue(value);
             if (name == "community_name" && !value) {
                 seterror({ ...error, name: "Name is required" });
             }
-            console.log(inputvalue)
-            console.log(name)
+            console.log(inputvalue);
+            console.log(name);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue1 = async (event,name) => {
+    const handleChangeDisplayvalue1 = async (event) => {
         try {
             event.preventDefault();
-           
-            let value=event.target.value;
-            setinputvalue1 (value);
-            setinputvalue2 (value);
-            console.log(inputvalue1)
-            console.log(name)
+
+            const value = event.target.value;
+            setinputvalue1(value);
+            console.log(inputvalue1);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue2 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue2(value);
+            console.log(inputvalue2);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue3 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue3(value);
+            console.log(inputvalue3);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue4 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue4(value);
+            console.log(inputvalue4);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue5 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue5(value);
+            console.log(inputvalue5);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue6 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue6(value);
+            console.log(inputvalue6);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue7 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue7(value);
+            console.log(inputvalue7);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue8 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue8(value);
+            console.log(inputvalue8);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue9 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue9(value);
+            console.log(inputvalue9);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue10 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue10(value);
+            console.log(inputvalue10);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue11 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue11(value);
+            console.log(inputvalue11);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue12 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue12(value);
+            console.log(inputvalue12);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue13 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue13(value);
+            console.log(inputvalue13);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue14 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue14(value);
+            console.log(inputvalue14);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue15 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue15(value);
+            console.log(inputvalue15);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue16 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue16(value);
+            console.log(inputvalue16);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue17 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue17(value);
+            console.log(inputvalue17);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue18 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue18(value);
+            console.log(inputvalue18);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue19 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue19(value);
+            console.log(inputvalue19);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue20 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue20(value);
+            console.log(inputvalue20);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue21 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue21(value);
+            console.log(inputvalue21);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue22 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue22(value);
+            console.log(inputvalue22);
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue23 = async (event) => {
+        try {
+            event.preventDefault();
+
+            const value = event.target.value;
+            setinputvalue23(value);
+            console.log(inputvalue23);
         } catch (err) {}
     };
     const closeAddReport = async () => {
@@ -124,12 +338,10 @@ function Report() {
     const radioHandler5 = (status5) => {
         setStatus5(status5);
     };
-    const saveReport=()=>{
+    const saveReport = () => {
         validateMandatoryFields();
-    }
-    const validateMandatoryFields=()=>{
-
-    }
+    };
+    const validateMandatoryFields = () => {};
     return (
         <div className="content-body">
             <Paper className="full-height-width">
@@ -230,17 +442,15 @@ function Report() {
                                                 style={{ display: "block" }}
                                                 value={inputvalue}
                                                 errorMessage={error.name}
-                                               handleSelectValueChange={(e) =>
+                                                handleSelectValueChange={(e) =>
                                                     handleChangeDisplayvalue(e)
-                                                    
                                                 }
                                             />
                                         </div>
-                                       
                                     </div>
-                                   
-                                        <p></p>
-                                        
+
+                                    <p></p>
+
                                     <div className="questionsFormat">
                                         <div className="spanDiv">
                                             <div className="questionDisplay">
@@ -254,8 +464,9 @@ function Report() {
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
                                                 value={inputvalue1}
-                                                handleSelectValueChange={(e,name="country") =>
-                                                handleChangeDisplayvalue1(e,name)}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue1(e)
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -273,8 +484,9 @@ function Report() {
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
                                                 value={inputvalue2}
-                                                handleSelectValueChange={(e,name="district") =>
-                                                handleChangeDisplayvalue1(e,name)}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue2(e)
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -290,7 +502,10 @@ function Report() {
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
-                                                
+                                                value={inputvalue3}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue3(e)
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -307,7 +522,10 @@ function Report() {
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
-                                          
+                                                value={inputvalue4}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue4(e)
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -329,7 +547,10 @@ function Report() {
                                                 maxLength="250"
                                                 style={{ display: "block" }}
                                                 name="reportedissue"
-                                              
+                                                value={inputvalue5}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue5(e)
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -355,7 +576,10 @@ function Report() {
                                                 name={"CONTACT_NAME1"}
                                                 customClassName={"width-50"}
                                                 style={{ display: "block" }}
-                                              
+                                                value={inputvalue6}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue6(e)
+                                                }
                                             />
                                             <Input
                                                 key={"PHN_NUMBER1"}
@@ -364,7 +588,10 @@ function Report() {
                                                 name={"PHN_NUMBER1"}
                                                 customClassName={"width-50"}
                                                 style={{ display: "block" }}
-                                               
+                                                value={inputvalue7}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue7(e)
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -382,7 +609,10 @@ function Report() {
                                                 name={"CONTACT_NAME1"}
                                                 customClassName={"width-50"}
                                                 style={{ display: "block" }}
-                                               
+                                                value={inputvalue8}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue8(e)
+                                                }
                                             />
                                             <Input
                                                 key={"PHN_NUMBER1"}
@@ -391,7 +621,10 @@ function Report() {
                                                 name={"PHN_NUMBER1"}
                                                 customClassName={"width-50"}
                                                 style={{ display: "block" }}
-                                               
+                                                value={inputvalue9}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue9(e)
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -416,6 +649,12 @@ function Report() {
                                                 type="date"
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
+                                                value={inputvalue23}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue23(
+                                                        e
+                                                    )
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -435,6 +674,12 @@ function Report() {
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
+                                                value={inputvalue10}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue10(
+                                                        e
+                                                    )
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -457,7 +702,9 @@ function Report() {
                                                     label={
                                                         "Preventative Maintenance"
                                                     }
-                                                    checked={selectedValue=="c"}
+                                                    checked={
+                                                        selectedValue == "c"
+                                                    }
                                                     onChange={handlechange}
                                                 />
                                                 <FormControlLabel
@@ -466,7 +713,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Repair"}
-                                                    checked={selectedValue=="b"}
+                                                    checked={
+                                                        selectedValue == "b"
+                                                    }
                                                     onChange={handlechange}
                                                 />
                                                 <FormControlLabel
@@ -475,7 +724,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Pump Removal"}
-                                                    checked={selectedValue=="a"}
+                                                    checked={
+                                                        selectedValue == "a"
+                                                    }
                                                     onChange={handlechange}
                                                 />
                                             </RadioGroup>
@@ -503,7 +754,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Yes"}
-                                                    checked={selectedValue1=="e"}
+                                                    checked={
+                                                        selectedValue1 == "e"
+                                                    }
                                                     onChange={handlechange1}
                                                 />
                                                 <FormControlLabel
@@ -512,7 +765,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"No"}
-                                                    checked={selectedValue1=="d"}
+                                                    checked={
+                                                        selectedValue1 == "d"
+                                                    }
                                                     onChange={handlechange1}
                                                 />
                                             </RadioGroup>
@@ -537,7 +792,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Yes"}
-                                                    checked={selectedValue2=="g"}
+                                                    checked={
+                                                        selectedValue2 == "g"
+                                                    }
                                                     onChange={handlechange2}
                                                 />
                                                 <FormControlLabel
@@ -546,7 +803,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"No"}
-                                                    checked={selectedValue2=="f"}
+                                                    checked={
+                                                        selectedValue2 == "f"
+                                                    }
                                                     onChange={handlechange2}
                                                 />
                                             </RadioGroup>
@@ -603,6 +862,14 @@ function Report() {
                                                         style={{
                                                             display: "block",
                                                         }}
+                                                        value={inputvalue14}
+                                                        handleSelectValueChange={(
+                                                            e
+                                                        ) =>
+                                                            handleChangeDisplayvalue14(
+                                                                e
+                                                            )
+                                                        }
                                                     />
                                                 )}
                                             </>
@@ -628,7 +895,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"1003101"}
-                                                    checked={selectedValue3=="m"}
+                                                    checked={
+                                                        selectedValue3 == "m"
+                                                    }
                                                     onChange={handlechange3}
                                                 />
                                                 <FormControlLabel
@@ -637,7 +906,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"1003401"}
-                                                    checked={selectedValue3=="l"}
+                                                    checked={
+                                                        selectedValue3 == "l"
+                                                    }
                                                     onChange={handlechange3}
                                                 />
                                                 <FormControlLabel
@@ -646,7 +917,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"1003151"}
-                                                    checked={selectedValue3=="k"}
+                                                    checked={
+                                                        selectedValue3 == "k"
+                                                    }
                                                     onChange={handlechange3}
                                                 />
                                                 <FormControlLabel
@@ -655,7 +928,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"1003451"}
-                                                    checked={selectedValue3=="j"}
+                                                    checked={
+                                                        selectedValue3 == "j"
+                                                    }
                                                     onChange={handlechange3}
                                                 />
                                                 <FormControlLabel
@@ -664,7 +939,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"1003201"}
-                                                    checked={selectedValue3=="i"}
+                                                    checked={
+                                                        selectedValue3 == "i"
+                                                    }
                                                     onChange={handlechange3}
                                                 />
                                                 <FormControlLabel
@@ -673,7 +950,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"1003421"}
-                                                    checked={selectedValue3=="h"}
+                                                    checked={
+                                                        selectedValue3 == "h"
+                                                    }
                                                     onChange={handlechange3}
                                                 />
                                             </RadioGroup>
@@ -692,6 +971,12 @@ function Report() {
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
+                                                value={inputvalue11}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue11(
+                                                        e
+                                                    )
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -712,6 +997,12 @@ function Report() {
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
+                                                value={inputvalue12}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue12(
+                                                        e
+                                                    )
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -737,6 +1028,12 @@ function Report() {
                                                 }
                                                 maxLength="600"
                                                 style={{ display: "block" }}
+                                                value={inputvalue13}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue13(
+                                                        e
+                                                    )
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -799,6 +1096,14 @@ function Report() {
                                                         style={{
                                                             display: "block",
                                                         }}
+                                                        value={inputvalue15}
+                                                        handleSelectValueChange={(
+                                                            e
+                                                        ) =>
+                                                            handleChangeDisplayvalue15(
+                                                                e
+                                                            )
+                                                        }
                                                     />
                                                 )}
                                             </>
@@ -821,6 +1126,12 @@ function Report() {
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
+                                                value={inputvalue16}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue16(
+                                                        e
+                                                    )
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -842,6 +1153,12 @@ function Report() {
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
+                                                value={inputvalue17}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue17(
+                                                        e
+                                                    )
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -997,6 +1314,14 @@ function Report() {
                                                         style={{
                                                             display: "block",
                                                         }}
+                                                        value={inputvalue18}
+                                                        handleSelectValueChange={(
+                                                            e
+                                                        ) =>
+                                                            handleChangeDisplayvalue18(
+                                                                e
+                                                            )
+                                                        }
                                                     />
                                                 </div>
                                             </div>
@@ -1028,6 +1353,14 @@ function Report() {
                                                         style={{
                                                             display: "block",
                                                         }}
+                                                        value={inputvalue19}
+                                                        handleSelectValueChange={(
+                                                            e
+                                                        ) =>
+                                                            handleChangeDisplayvalue19(
+                                                                e
+                                                            )
+                                                        }
                                                     />
                                                 </div>
                                             </div>
@@ -1049,6 +1382,14 @@ function Report() {
                                                     }
                                                     maxLength="400"
                                                     style={{ display: "block" }}
+                                                    value={inputvalue20}
+                                                    handleSelectValueChange={(
+                                                        e
+                                                    ) =>
+                                                        handleChangeDisplayvalue20(
+                                                            e
+                                                        )
+                                                    }
                                                 />
                                             </div>
                                         </div>
@@ -1068,6 +1409,14 @@ function Report() {
                                                     }
                                                     maxLength="400"
                                                     style={{ display: "block" }}
+                                                    value={inputvalue21}
+                                                    handleSelectValueChange={(
+                                                        e
+                                                    ) =>
+                                                        handleChangeDisplayvalue21(
+                                                            e
+                                                        )
+                                                    }
                                                 />
                                             </div>
                                         </div>
@@ -1126,7 +1475,9 @@ function Report() {
                                                     label={
                                                         "Replaced and/or broken components"
                                                     }
-                                                    checked={selectedValue4=="r"}
+                                                    checked={
+                                                        selectedValue4 == "r"
+                                                    }
                                                     onChange={handlechange4}
                                                 />
                                                 <FormControlLabel
@@ -1135,7 +1486,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Inspection photos"}
-                                                    checked={selectedValue4=="q"}
+                                                    checked={
+                                                        selectedValue4 == "q"
+                                                    }
                                                     onChange={handlechange4}
                                                 />
                                                 <FormControlLabel
@@ -1144,7 +1497,9 @@ function Report() {
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Testimony photos"}
-                                                    checked={selectedValue4=="p"}
+                                                    checked={
+                                                        selectedValue4 == "p"
+                                                    }
                                                     onChange={handlechange4}
                                                 />
                                                 <FormControlLabel
@@ -1155,7 +1510,9 @@ function Report() {
                                                     label={
                                                         "5-10 additional photos from installation and when LP is operating "
                                                     }
-                                                    checked={selectedValue4=="o"}
+                                                    checked={
+                                                        selectedValue4 == "o"
+                                                    }
                                                     onChange={handlechange4}
                                                 />
                                                 <FormControlLabel
@@ -1166,7 +1523,9 @@ function Report() {
                                                     label={
                                                         "1-3 short videos of LP operating"
                                                     }
-                                                    checked={selectedValue4=="n"}
+                                                    checked={
+                                                        selectedValue4 == "n"
+                                                    }
                                                     onChange={handlechange4}
                                                 />
                                             </RadioGroup>
@@ -1187,6 +1546,12 @@ function Report() {
                                                 }
                                                 maxLength="400"
                                                 style={{ display: "block" }}
+                                                value={inputvalue22}
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue22(
+                                                        e
+                                                    )
+                                                }
                                             />
                                         </div>
                                     </div>
