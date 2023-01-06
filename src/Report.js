@@ -27,8 +27,10 @@ function Report() {
     const [displayPage, setDisplayPage] = useState(0);
     const [reportType, setReportType] = useState(1);
     const [selectedCustomerId, setSelectedCustomerId] = useState(0);
-
-    const [isRetrofit, setIsRetrofit] = useState(false);
+    const [status, setStatus] = useState(0);
+	const[status3,setStatus3]=useState(0);
+    const[status4,setStatus4]=useState(0);
+    const[status5,setStatus5]=useState(0);
     const openAddReport = async () => {
         try {
             setShowmaintenanceForm(true);
@@ -58,18 +60,19 @@ function Report() {
             setSelectedCustomerId(value);
         } catch (err) {}
     };
-    const toggleRetrofitOption = async (event) => {
-        try {
-            let value = event.target.value;
-
-            if (value == "Yes") {
-                setIsRetrofit(true);
-            } else {
-                setIsRetrofit(false);
-            }
-        } catch (err) {}
-    };
-
+	
+    const radioHandler = (status) => {
+        setStatus(status);
+      };
+      const radioHandler3 = (status3) => {
+        setStatus3(status3);
+      };
+      const radioHandler4 = (status4) => {
+        setStatus4(status4);
+      };
+      const radioHandler5 = (status5) => {
+        setStatus5(status5);
+      };
     return (
         <div className="content-body">
             <Paper className="full-height-width">
@@ -254,63 +257,34 @@ function Report() {
                                         </div>
                                     </div>
                                     <div className="questionsFormat">
-                                        <div className="spanDiv">
-                                            <div className="questionDisplay">
-                                                Please provide community contact
-                                                information:
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="questionsFormat">
-                                        <div className="spanDiv">
-                                            <div className="questionDisplay">
-                                                1. Care taker/ first responder
-                                            </div>
-                                        </div>
-                                        <div className="ca-site-contact-details">
-                                            <Input
-                                                key={"CONTACT_NAME1"}
-                                                type="text"
-                                                label="Name"
-                                                name={"CONTACT_NAME1"}
-                                                customClassName={"width-50"}
-                                                style={{ display: "block" }}
-                                            />
-                                            <Input
-                                                key={"PHN_NUMBER1"}
-                                                type="text"
-                                                label="Phone Number"
-                                                name={"PHN_NUMBER1"}
-                                                customClassName={"width-50"}
-                                                style={{ display: "block" }}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="questionsFormat">
-                                        <div className="spanDiv">
-                                            <div className="questionDisplay">
-                                                2. Water Point committee member
-                                            </div>
-                                        </div>
-                                        <div className="ca-site-contact-details">
-                                            <Input
-                                                key={"CONTACT_NAME1"}
-                                                type="text"
-                                                label="Name"
-                                                name={"CONTACT_NAME1"}
-                                                customClassName={"width-50"}
-                                                style={{ display: "block" }}
-                                            />
-                                            <Input
-                                                key={"PHN_NUMBER1"}
-                                                type="text"
-                                                label="Phone Number"
-                                                name={"PHN_NUMBER1"}
-                                                customClassName={"width-50"}
-                                                style={{ display: "block" }}
-                                            />
-                                        </div>
-                                    </div>
+														<div className="spanDiv">
+															<div className="questionDisplay">
+															Please provide community contact information:																											
+					    								</div>
+									     				</div>														
+													</div>
+													<div className="questionsFormat">
+														<div className="spanDiv">
+															<div className="questionDisplay">														
+														1. Care taker/ first responder		
+															</div>
+														</div>
+														<div className="ca-site-contact-details">
+															<Input  key={"CONTACT_NAME1"} type="text" label="Name" name={"CONTACT_NAME1"} customClassName={"width-50"}  style={{ "display": "block" }} />	
+          													<Input  key={"PHN_NUMBER1"} type="text" label="Phone Number" name={"PHN_NUMBER1"} customClassName={"width-50"}  style={{ "display": "block" }}  />
+														</div>
+													</div>
+													<div className="questionsFormat">
+														<div className="spanDiv">
+															<div className="questionDisplay">														
+														2. Water Point committee member		
+															</div>
+														</div>
+														<div className="ca-site-contact-details">
+															<Input  key={"CONTACT_NAME1"} type="text" label="Name" name={"CONTACT_NAME1"} customClassName={"width-50"}  style={{ "display": "block" }} />	
+          													<Input  key={"PHN_NUMBER1"} type="text" label="Phone Number" name={"PHN_NUMBER1"} customClassName={"width-50"}  style={{ "display": "block" }}  />
+														</div>
+													</div>
                                 </div>
                             ) : displayPage == 1 ? (
                                 <div
@@ -318,23 +292,15 @@ function Report() {
                                     style={{ overflow: "auto" }}
                                 >
                                     <div className="questionsFormat">
-                                        <div className="spanDiv">
-                                            <div className="questionDisplay">
-                                                Date performed
-                                            </div>
-                                        </div>
-                                        <div
-                                            className="answerDisplay"
-                                            style={{ display: "block" }}
-                                        >
-                                            <Input
-                                                label=""
-                                                type="date"
-                                                customClassName="input-container-5"
-                                                style={{ display: "block" }}
-                                            />
-                                        </div>
-                                    </div>
+														<div className="spanDiv">
+															<div className="questionDisplay" >
+															Date performed
+															</div>
+														</div>
+														<div className="answerDisplay" style={{ "display": "block" }}>
+															<Input label="" type="date"  customClassName= "input-container-5"   style={{ "display": "block" }} />
+														</div>
+													</div>
                                     <div className="questionsFormat">
                                         <div className="spanDiv">
                                             <div className="questionDisplay">
@@ -461,50 +427,54 @@ function Report() {
                                                 New LifePumpLink Installed?
                                             </div>
                                         </div>
-                                        <div className="ca-site-contact-details">
-                                            <>
-                                                <RadioGroup
-                                                    aria-label="position"
-                                                    name="position"
-                                                    customClassName={"width-50"}
-                                                >
-                                                    <FormControlLabel
-                                                        value={"Yes"}
-                                                        control={
-                                                            <Radio color="primary" />
-                                                        }
-                                                        label={"Yes"}
-                                                        id="Yes"
-                                                        onChange={(event) =>
-                                                            toggleRetrofitOption(
-                                                                event
-                                                            )
-                                                        }
-                                                    />
-                                                    <FormControlLabel
-                                                        value={"No"}
-                                                        control={
-                                                            <Radio color="primary" />
-                                                        }
-                                                        label={"No"}
-                                                        id="No"
-                                                        onChange={(event) =>
-                                                            toggleRetrofitOption(
-                                                                event
-                                                            )
-                                                        }
-                                                    />
-                                                </RadioGroup>
-
-                                                <Input
-                                                    type="text"
-                                                    label="Serial number"
-                                                    customClassName={"width-50"}
-                                                    style={{ display: "block" }}
+                                        <div className="answerDisplay">
+											<>
+                                            <RadioGroup
+                                                aria-label="position"
+                                                name="position"
+                                                customClassName={"width-50"}
+                                                row
+                                            >
+                                                <FormControlLabel
+                                                    value={"Yes"}
+                                                    control={
+                                                        <Radio color="primary" />
+                                                    }
+                                                    label={"Yes"}
+													id="Yes"
+                                                    checked={status === 1}
+												
+                                                onClick={(e) => radioHandler(1)} 
                                                 />
-                                            </>
+                                                <FormControlLabel
+                                                    value={"No"}
+                                                    control={
+                                                        <Radio color="primary" />
+                                                    }
+                                                    label={"No"}
+													id="No"
+                                                    checked={status === 2}
+													
+													onClick={(e) => radioHandler(2)} 
+                                                />
+                                            </RadioGroup>
+											
+                                            {status === 1 && 
+                                            
+                                            <Input
+                                                type="text"
+                                                label="Serial number"
+                                                customClassName={"width-50"}
+                                                style={{ display: "block" }}
+                                            />
+                                            
+                                            }
+                                   
+											</>
                                         </div>
                                     </div>
+
+                                    
                                     <div className="questionsFormat">
                                         <div className="spanDiv">
                                             <div className="questionDisplay">
@@ -630,41 +600,57 @@ function Report() {
                                     className="flexWrap"
                                     style={{ overflow: "auto" }}
                                 >
-                                    <div className="questionsFormat">
+                                 <div className="questionsFormat">
                                         <div className="spanDiv">
                                             <div className="questionDisplay">
-                                                Were any non-standard hardware
-                                                installed on the pump?
+                                            Were any non-standard hardware installed on the pump?
                                             </div>
                                         </div>
-                                        <div className="ca-site-contact-details">
+                                        <div className="answerDisplay">
+											<>
                                             <RadioGroup
                                                 aria-label="position"
                                                 name="position"
                                                 customClassName={"width-50"}
+                                                row
                                             >
                                                 <FormControlLabel
-                                                    value={1}
+                                                    value={"Yes"}
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Yes"}
+													id="Yes"
+                                                    checked={status3 === 3}
+												//	onChange={(event) => toggleRetrofitOption(event)}
+                                                onClick={(e) => radioHandler3(3)} 
                                                 />
                                                 <FormControlLabel
-                                                    value={0}
+                                                    value={"No"}
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"No"}
+													id="No"
+                                                    checked={status3 === 4}
+													//onChange={(event) => toggleRetrofitOption(event)}
+													onClick={(e) => radioHandler3(4)} 
                                                 />
                                             </RadioGroup>
-
+											
+        
+                                   
+                                            {status3 === 3 && 
+                                            
                                             <Input
                                                 type="text"
-                                                label="-if so please describe"
+                                                label="– if so, please describe:"
                                                 customClassName={"width-50"}
                                                 style={{ display: "block" }}
                                             />
+                                            
+                                            }
+											</>
                                         </div>
                                     </div>
                                     <div className="questionsFormat">
@@ -711,49 +697,62 @@ function Report() {
                                     <div className="questionsFormat">
                                         <div className="spanDiv">
                                             <div className="questionDisplay">
-                                                Is gearbox seal leaking?
+                                            Is gearbox seal leaking?
                                                 <p>
                                                     (visual assessment – take
                                                     photo)
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="answerDisplay">
+                                        <div className="ca-site-contact-details">
+											<>
                                             <RadioGroup
                                                 aria-label="position"
                                                 name="position"
-                                                row
+                                                customClassName={"width-50"}
+                                                
                                             >
                                                 <FormControlLabel
-                                                    value={1}
+                                                    value={"Yes"}
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Yes"}
+													id="Yes"
+                                                    checked={status4 === 5}
+												//	onChange={(event) => toggleRetrofitOption(event)}
+                                                onClick={(e) => radioHandler4(5)} 
                                                 />
                                                 <FormControlLabel
-                                                    value={0}
+                                                    value={"No"}
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"No"}
+													id="No"
+                                                    checked={status4 === 6}
+													//onChange={(event) => toggleRetrofitOption(event)}
+													onClick={(e) => radioHandler4(6)} 
                                                 />
                                             </RadioGroup>
-                                            <div className="answerDisplay">
-                                                <label>
-                                                    <Button
-                                                        className="site-image-upload-button"
-                                                        variant="contained"
-                                                        color="primary"
-                                                        component="span"
-                                                    >
-                                                        {"CHOOSE FILES"}
-                                                    </Button>
-                                                </label>
-                                            </div>
-                                            <div className="testimonyFiles"></div>
+											
+        
+                                   
+                                            {status4 === 5 && 
+                                            <>
+                                            <label>
+                                            <Button className="site-image-upload-button" variant="contained" color="primary" component="span">
+                                                {"CHOOSE FILES" }
+                                            </Button>
+                                        </label>
+                                    
+                                    <div className="testimonyFiles"></div>
+                                            </>
+                                            }
+											</>
                                         </div>
                                     </div>
+                                   
                                 </div>
                             ) : displayPage == 3 ? (
                                 <>
@@ -761,55 +760,122 @@ function Report() {
                                         className="flexWrap"
                                         style={{ overflow: "auto" }}
                                     >
-                                        <div className="questionsFormat">
-                                            <div className="spanDiv">
-                                                <div className="questionDisplay">
-                                                    Pump Maintenance Period
-                                                </div>
-                                            </div>
-                                            <div className="answerDisplay radio">
-                                                <RadioGroup
-                                                    aria-label="position"
-                                                    name="position"
-                                                >
-                                                    <FormControlLabel
-                                                        value={1}
-                                                        control={
-                                                            <Radio color="primary" />
-                                                        }
-                                                        label={
-                                                            "Not maintained greater than a year"
-                                                        }
-                                                    />
-                                                    <FormControlLabel
-                                                        value={0}
-                                                        control={
-                                                            <Radio color="primary" />
-                                                        }
-                                                        label={
-                                                            "Maintained within a year"
-                                                        }
-                                                    />
-                                                </RadioGroup>
+                                         <div className="questionsFormat">
+                                        <div className="spanDiv">
+                                            <div className="questionDisplay">
+                                            Pump Maintenance Period
                                             </div>
                                         </div>
+                                        <div className="ca-site-contact-details" style={{ display: "block" }}>
+											<>
+                                            <RadioGroup
+                                                aria-label="position"
+                                                name="position"
+                                                customClassName={"width-50"}
+                                                
+                                            >
+                                                <FormControlLabel
+                                                    value={"Yes"}
+                                                    control={
+                                                        <Radio color="primary" />
+                                                    }
+                                                    label={"Not maintained greater than a year"}
+													id="Yes"
+                                                    checked={status5 === 7}
+												
+                                                onClick={(e) => radioHandler5(7)} 
+                                                />
+                                                <FormControlLabel
+                                                    value={"No"}
+                                                    control={
+                                                        <Radio color="primary" />
+                                                    }
+                                                    label={"Maintained within a year"}
+													id="No"
+                                                    checked={status5 === 8}
+													
+													onClick={(e) => radioHandler5(8)} 
+                                                />
+                                            </RadioGroup>
+											
+        
+                                   
+											</>
+                                        </div>
+                                    </div>
+                                    {status5 === 7 && 
+                                        
+                                        <div className="questionsFormat" >
+                                        <div className="spanDiv">
+                                            <div className="questionDisplay">
+                                                If pump has not been
+                                                maintenanced for more than 1
+                                                year, ask community member:
+                                                <p>
+                                                    “How has the LifePump
+                                                    benefited your
+                                                    community?”
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="answerDisplay">
+                                            <Input
+                                                type="text"
+                                                rows="5"
+                                                label=""
+                                                customClassName={
+                                                    "input-container-5"
+                                                }
+                                                maxLength="400"
+                                                style={{ display: "block" }}
+                                            />
+                                        </div>
+                                    </div>
+                                    
+                                        
+                                        }
+                                         {status5 === 8 && 
+                                        
+                                        <div className="questionsFormat">
+                                        <div className="spanDiv">
+                                            <div className="questionDisplay">
+                                                If pump has been
+                                                maintenanced within the last
+                                                1 year, ask community
+                                                member:
+                                                <p>
+                                                    “Do you understand what
+                                                    the problem was with
+                                                    your LifePump?”{" "}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="answerDisplay">
+                                            <Input
+                                                type="text"
+                                                rows="5"
+                                                label=""
+                                                customClassName={
+                                                    "input-container-5"
+                                                }
+                                                maxLength="400"
+                                                style={{ display: "block" }}
+                                            />
+                                        </div>
+                                    </div>
+                                        
+                                        }
+                                        
                                         <div className="questionsFormat">
                                             <div className="spanDiv">
                                                 <div className="questionDisplay">
-                                                    If pump has not been
-                                                    maintenanced for more than 1
-                                                    year, ask community member:
-                                                    <p>
-                                                        “How has the LifePump
-                                                        benefited your
-                                                        community?”
-                                                    </p>
+                                                    Please record name of person being interviewed
+                                                  
                                                 </div>
                                             </div>
                                             <div className="answerDisplay">
                                                 <Input
                                                     type="text"
-                                                    rows="5"
                                                     label=""
                                                     customClassName={
                                                         "input-container-5"
@@ -819,38 +885,12 @@ function Report() {
                                                 />
                                             </div>
                                         </div>
-                                        <div className="questionsFormat">
+										<div className="questionsFormat">
                                             <div className="spanDiv">
                                                 <div className="questionDisplay">
-                                                    If pump has been
-                                                    maintenanced within the last
-                                                    1 year, ask community
-                                                    member:
-                                                    <p>
-                                                        “Do you understand what
-                                                        the problem was with
-                                                        your LifePump?”{" "}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div className="answerDisplay">
-                                                <Input
-                                                    type="text"
-                                                    rows="5"
-                                                    label=""
-                                                    customClassName={
-                                                        "input-container-5"
-                                                    }
-                                                    maxLength="400"
-                                                    style={{ display: "block" }}
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="questionsFormat">
-                                            <div className="spanDiv">
-                                                <div className="questionDisplay">
-                                                    Please record name of person
-                                                    being interviewed
+                                                    Please record age
+                                                    of person being interviewed
+                                                  
                                                 </div>
                                             </div>
                                             <div className="answerDisplay">
@@ -865,55 +905,32 @@ function Report() {
                                                 />
                                             </div>
                                         </div>
-                                        <div className="questionsFormat">
-                                            <div className="spanDiv">
-                                                <div className="questionDisplay">
-                                                    Please record age of person
-                                                    being interviewed and take
-                                                    photo.
-                                                </div>
-                                            </div>
-                                            <div className="answerDisplay">
-                                                <Input
-                                                    type="text"
-                                                    label=""
-                                                    customClassName={
-                                                        "input-container-5"
-                                                    }
-                                                    maxLength="400"
-                                                    style={{ display: "block" }}
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="questionsFormat pd-top-10">
-                                            <div className="questionsFormat">
-                                                <div className="spanDiv">
-                                                    <div className="questionDisplay">
-                                                        Please take photo of
-                                                        person being interviewed
-                                                    </div>
-                                                </div>
-                                                <input
-                                                    accept="image/*"
-                                                    style={{ display: "none" }}
-                                                    type="file"
-                                                    multiple
-                                                />
-                                                <div className="image-container flexAlignCenter">
-                                                    <label>
-                                                        <Button
-                                                            className="site-image-upload-button"
-                                                            variant="contained"
-                                                            color="primary"
-                                                            component="span"
-                                                        >
-                                                            {"CHOOSE FILES"}
-                                                        </Button>
-                                                    </label>
-                                                </div>
-                                                <div className="testimonyFiles"></div>
-                                            </div>
-                                        </div>
+										<div className="questionsFormat pd-top-10">
+																	<div  className="questionsFormat">
+																		<div className="spanDiv">
+																			<div className="questionDisplay">
+																			Please take photo of person being interviewed 
+																			</div>
+																		</div>
+																		<input
+																		
+																			accept="image/*"
+																			style={{ display: "none" }}
+																
+																			type="file"
+																			multiple
+																			
+																		/>
+																		<div className="image-container flexAlignCenter">
+																			<label>
+																				<Button className="site-image-upload-button" variant="contained" color="primary" component="span">
+																					{"CHOOSE FILES" }
+																				</Button>
+																			</label>
+																		</div>
+																		<div className="testimonyFiles"></div>
+																	</div>
+																</div>
                                     </div>
                                 </>
                             ) : displayPage == 4 ? (
@@ -1020,3 +1037,4 @@ function Report() {
     );
 }
 export default Report;
+
