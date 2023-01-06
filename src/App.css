@@ -141,3 +141,91 @@
     justify-content: space-between;
 	padding-right: 14%;
 }
+.width-50{
+	width: 50%;
+}
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (orientation: landscape) { 
+
+	.page-content{
+		height: 83%;
+	}
+}
+@media only screen and (max-width:960px) {
+
+	.content-body{
+		width: 100%;
+	}
+
+}
+@media only screen and (max-width:1025px) {
+
+}
+@media only screen and (max-width:1025px) and (orientation : landscape){
+
+}
+@media only screen and (max-width:961px) and (orientation : landscape){
+
+}
+@media only screen and (max-width:640px){
+	.content-body{
+		padding: 5px;
+	}
+	
+	.page-content{
+		height: 85%;
+	}
+	
+
+}
+@media only screen and (max-width:400px){
+
+	.page-content{
+		height: 85%;
+	}
+}
+@font-face {
+  font-family: 'Poppins-Light';
+  font-style: normal;
+  font-weight: 500;
+  src: url("Poppins-Light.ttf");
+}
+@font-face {
+  font-family: 'Poppins-Regular';
+  font-style: normal;
+  font-weight: 500;
+  src: url("Poppins-Regular.ttf");
+}
+html, body, #root {
+	margin: 0 auto;
+	height: 100%;
+	width: 100%;
+	font-family: Poppins-Regular !important;
+}
+.flexAlignCenterJustifyCenter {  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: -webkit-flex; /* Safari */
+  -webkit-justify-content: center; 
+  -webkit-align-items: center;
+  display: -moz-flex; /* Mozilla */
+  -moz-justify-content: center; 
+  -moz-align-items: center;
+}
+.flexAlignCenter {       
+  display: flex;
+  align-items: center;
+  display: -webkit-flex; /* Safari */
+  -webkit-align-items: center;
+  display: -moz-flex; /* Mozilla */
+  -moz-align-items: center;
+}
+.testimonyFiles{
+	margin-bottom: 10%;
+}
+.MuiDialog-paperWidthMd {
+  max-width: 991px !important;
+}
