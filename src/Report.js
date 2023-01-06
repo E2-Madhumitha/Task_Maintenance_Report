@@ -23,6 +23,7 @@ import MuiDialogContent from "@material-ui/core/DialogContent";
 import Select from "./Select";
 import Input from "./Input";
 function Report() {
+   
     const [showmaintenanceForm, setShowmaintenanceForm] = useState(false);
     const [displayPage, setDisplayPage] = useState(0);
     const [reportType, setReportType] = useState(1);
@@ -31,6 +32,17 @@ function Report() {
     const [status3, setStatus3] = useState(0);
     const [status4, setStatus4] = useState(0);
     const [status5, setStatus5] = useState(0);
+    const[inputvalue,setinputvalue]=useState("");
+    const[inputvalue1,setinputvalue1]=useState("");
+    const[inputvalue2,setinputvalue2]=useState("");
+    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue1, setSelectedValue1] = useState("");
+    const [selectedValue2, setSelectedValue2] = useState("");
+    const [selectedValue3, setSelectedValue3] = useState("");
+    const [selectedValue4, setSelectedValue4] = useState("");
+    const [showInvalidInputError_1, setShowInvalidInputError_1] = useState(false);
+    const[error,seterror]=useState({})
+    const[details,setDetails]=useState({})
     const openAddReport = async () => {
         try {
             setShowmaintenanceForm(true);
@@ -40,6 +52,45 @@ function Report() {
         try {
             event.preventDefault();
             setDisplayPage(value);
+        } catch (err) {}
+    };
+    const handlechange = (event) => {
+        setSelectedValue(event.target.value);
+      };
+      const handlechange1 = (event) => {
+        setSelectedValue1(event.target.value);
+      };
+      const handlechange2 = (event) => {
+        setSelectedValue2(event.target.value);
+      };
+      const handlechange3 = (event) => {
+        setSelectedValue3(event.target.value);
+      };
+      const handlechange4 = (event) => {
+        setSelectedValue4(event.target.value);
+      };
+    const handleChangeDisplayvalue =  (event) => {
+        try {
+            event.preventDefault();
+            const name=event.target.name;
+            const value=event.target.value;
+            setinputvalue (value);
+            if (name == "community_name" && !value) {
+                seterror({ ...error, name: "Name is required" });
+            }
+            console.log(inputvalue)
+            console.log(name)
+        } catch (err) {}
+    };
+    const handleChangeDisplayvalue1 = async (event,name) => {
+        try {
+            event.preventDefault();
+           
+            let value=event.target.value;
+            setinputvalue1 (value);
+            setinputvalue2 (value);
+            console.log(inputvalue1)
+            console.log(name)
         } catch (err) {}
     };
     const closeAddReport = async () => {
@@ -73,6 +124,12 @@ function Report() {
     const radioHandler5 = (status5) => {
         setStatus5(status5);
     };
+    const saveReport=()=>{
+        validateMandatoryFields();
+    }
+    const validateMandatoryFields=()=>{
+
+    }
     return (
         <div className="content-body">
             <Paper className="full-height-width">
@@ -168,11 +225,22 @@ function Report() {
                                             <Input
                                                 type="text"
                                                 label=""
+                                                name="community_name"
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
+                                                value={inputvalue}
+                                                errorMessage={error.name}
+                                               handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue(e)
+                                                    
+                                                }
                                             />
                                         </div>
+                                       
                                     </div>
+                                   
+                                        <p></p>
+                                        
                                     <div className="questionsFormat">
                                         <div className="spanDiv">
                                             <div className="questionDisplay">
@@ -185,6 +253,9 @@ function Report() {
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
+                                                value={inputvalue1}
+                                                handleSelectValueChange={(e,name="country") =>
+                                                handleChangeDisplayvalue1(e,name)}
                                             />
                                         </div>
                                     </div>
@@ -201,6 +272,9 @@ function Report() {
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
+                                                value={inputvalue2}
+                                                handleSelectValueChange={(e,name="district") =>
+                                                handleChangeDisplayvalue1(e,name)}
                                             />
                                         </div>
                                     </div>
@@ -216,6 +290,7 @@ function Report() {
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
+                                                
                                             />
                                         </div>
                                     </div>
@@ -232,6 +307,7 @@ function Report() {
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
+                                          
                                             />
                                         </div>
                                     </div>
@@ -253,6 +329,7 @@ function Report() {
                                                 maxLength="250"
                                                 style={{ display: "block" }}
                                                 name="reportedissue"
+                                              
                                             />
                                         </div>
                                     </div>
@@ -278,6 +355,7 @@ function Report() {
                                                 name={"CONTACT_NAME1"}
                                                 customClassName={"width-50"}
                                                 style={{ display: "block" }}
+                                              
                                             />
                                             <Input
                                                 key={"PHN_NUMBER1"}
@@ -286,6 +364,7 @@ function Report() {
                                                 name={"PHN_NUMBER1"}
                                                 customClassName={"width-50"}
                                                 style={{ display: "block" }}
+                                               
                                             />
                                         </div>
                                     </div>
@@ -303,6 +382,7 @@ function Report() {
                                                 name={"CONTACT_NAME1"}
                                                 customClassName={"width-50"}
                                                 style={{ display: "block" }}
+                                               
                                             />
                                             <Input
                                                 key={"PHN_NUMBER1"}
@@ -311,6 +391,7 @@ function Report() {
                                                 name={"PHN_NUMBER1"}
                                                 customClassName={"width-50"}
                                                 style={{ display: "block" }}
+                                               
                                             />
                                         </div>
                                     </div>
@@ -369,27 +450,33 @@ function Report() {
                                                 name="position"
                                             >
                                                 <FormControlLabel
-                                                    value={2}
+                                                    value="c"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={
                                                         "Preventative Maintenance"
                                                     }
+                                                    checked={selectedValue=="c"}
+                                                    onChange={handlechange}
                                                 />
                                                 <FormControlLabel
-                                                    value={1}
+                                                    value="b"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Repair"}
+                                                    checked={selectedValue=="b"}
+                                                    onChange={handlechange}
                                                 />
                                                 <FormControlLabel
-                                                    value={0}
+                                                    value="a"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Pump Removal"}
+                                                    checked={selectedValue=="a"}
+                                                    onChange={handlechange}
                                                 />
                                             </RadioGroup>
                                         </div>
@@ -411,18 +498,22 @@ function Report() {
                                                 row
                                             >
                                                 <FormControlLabel
-                                                    value={1}
+                                                    value="e"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Yes"}
+                                                    checked={selectedValue1=="e"}
+                                                    onChange={handlechange1}
                                                 />
                                                 <FormControlLabel
-                                                    value={0}
+                                                    value="d"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"No"}
+                                                    checked={selectedValue1=="d"}
+                                                    onChange={handlechange1}
                                                 />
                                             </RadioGroup>
                                         </div>
@@ -441,18 +532,22 @@ function Report() {
                                                 row
                                             >
                                                 <FormControlLabel
-                                                    value={1}
+                                                    value="g"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Yes"}
+                                                    checked={selectedValue2=="g"}
+                                                    onChange={handlechange2}
                                                 />
                                                 <FormControlLabel
-                                                    value={0}
+                                                    value="f"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"No"}
+                                                    checked={selectedValue2=="f"}
+                                                    onChange={handlechange2}
                                                 />
                                             </RadioGroup>
                                         </div>
@@ -528,46 +623,58 @@ function Report() {
                                                 row
                                             >
                                                 <FormControlLabel
-                                                    value={5}
+                                                    value="m"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"1003101"}
+                                                    checked={selectedValue3=="m"}
+                                                    onChange={handlechange3}
                                                 />
                                                 <FormControlLabel
-                                                    value={4}
+                                                    value="l"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"1003401"}
+                                                    checked={selectedValue3=="l"}
+                                                    onChange={handlechange3}
                                                 />
                                                 <FormControlLabel
-                                                    value={3}
+                                                    value="k"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"1003151"}
+                                                    checked={selectedValue3=="k"}
+                                                    onChange={handlechange3}
                                                 />
                                                 <FormControlLabel
-                                                    value={2}
+                                                    value="j"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"1003451"}
+                                                    checked={selectedValue3=="j"}
+                                                    onChange={handlechange3}
                                                 />
                                                 <FormControlLabel
-                                                    value={1}
+                                                    value="i"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"1003201"}
+                                                    checked={selectedValue3=="i"}
+                                                    onChange={handlechange3}
                                                 />
                                                 <FormControlLabel
-                                                    value={0}
+                                                    value="h"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"1003421"}
+                                                    checked={selectedValue3=="h"}
+                                                    onChange={handlechange3}
                                                 />
                                             </RadioGroup>
                                         </div>
@@ -1012,45 +1119,55 @@ function Report() {
                                                 name="position"
                                             >
                                                 <FormControlLabel
-                                                    value={4}
+                                                    value="r"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={
                                                         "Replaced and/or broken components"
                                                     }
+                                                    checked={selectedValue4=="r"}
+                                                    onChange={handlechange4}
                                                 />
                                                 <FormControlLabel
-                                                    value={3}
+                                                    value="q"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Inspection photos"}
+                                                    checked={selectedValue4=="q"}
+                                                    onChange={handlechange4}
                                                 />
                                                 <FormControlLabel
-                                                    value={2}
+                                                    value="p"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={"Testimony photos"}
+                                                    checked={selectedValue4=="p"}
+                                                    onChange={handlechange4}
                                                 />
                                                 <FormControlLabel
-                                                    value={1}
+                                                    value="o"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={
                                                         "5-10 additional photos from installation and when LP is operating "
                                                     }
+                                                    checked={selectedValue4=="o"}
+                                                    onChange={handlechange4}
                                                 />
                                                 <FormControlLabel
-                                                    value={0}
+                                                    value="n"
                                                     control={
                                                         <Radio color="primary" />
                                                     }
                                                     label={
                                                         "1-3 short videos of LP operating"
                                                     }
+                                                    checked={selectedValue4=="n"}
+                                                    onChange={handlechange4}
                                                 />
                                             </RadioGroup>
                                         </div>
@@ -1082,6 +1199,7 @@ function Report() {
                                                 type="button"
                                                 variant="contained"
                                                 color="primary"
+                                                onClick={() => saveReport()}
                                             >
                                                 SAVE
                                             </Button>
