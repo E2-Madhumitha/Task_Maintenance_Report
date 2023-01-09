@@ -27,10 +27,10 @@ function Report() {
     const [displayPage, setDisplayPage] = useState(0);
     const [reportType, setReportType] = useState(1);
     const [selectedCustomerId, setSelectedCustomerId] = useState(0);
-    const [status, setStatus] = useState(0);
-    const [status3, setStatus3] = useState(0);
-    const [status4, setStatus4] = useState(0);
-    const [status5, setStatus5] = useState(0);
+    const [status, setStatus] = useState(1);
+    const [status3, setStatus3] = useState(3);
+    const [status4, setStatus4] = useState(5);
+    const [status5, setStatus5] = useState(8);
     const [inputvalue, setinputvalue] = useState("");
     const [inputvalue1, setinputvalue1] = useState("");
     const [inputvalue2, setinputvalue2] = useState("");
@@ -55,51 +55,70 @@ function Report() {
     const [inputvalue21, setinputvalue21] = useState("");
     const [inputvalue22, setinputvalue22] = useState("");
     const [inputvalue23, setinputvalue23] = useState("");
-    const [selectedValue, setSelectedValue] = useState("");
-    const [selectedValue1, setSelectedValue1] = useState("");
-    const [selectedValue2, setSelectedValue2] = useState("");
-    const [selectedValue3, setSelectedValue3] = useState("");
-    const [selectedValue4, setSelectedValue4] = useState("");
-    const [showInvalidInputError_12, setShowInvalidInputError_12] = useState(false);
+    const [selectedValue, setSelectedValue] = useState("c");
+    const [selectedValue1, setSelectedValue1] = useState("e");
+    const [selectedValue2, setSelectedValue2] = useState("g");
+    const [selectedValue3, setSelectedValue3] = useState("m");
+    const [selectedValue4, setSelectedValue4] = useState("r");
+    const [showInvalidInputError_12, setShowInvalidInputError_12] =
+        useState(false);
     const [showError_12, setShowError_12] = useState(false);
-    const [error, seterror] = useState({});
+    const [showError_2, setShowError_2] = useState(false);
+    const [showError_3, setShowError_3] = useState(false);
+    const [showError_4, setShowError_4] = useState(false);
+    const [showError_5, setShowError_5] = useState(false);
+    const [showError_6, setShowError_6] = useState(false);
+    const [showError_7, setShowError_7] = useState(false);
+    const [showError_8, setShowError_8] = useState(false);
+    const [showError_9, setShowError_9] = useState(false);
+    const [showError_10, setShowError_10] = useState(false);
+    const [showInvalidInputError_10, setShowInvalidInputError_10] =
+        useState(false);
     const [errorMsgFields, setErrorMsgFields] = useState({
-		"mandatoryErrorMsg": "This field is required",
-		"invalidIntegerInput": "Only numbers are allowed",
-		"invalidDecimalInput": "Only numbers are allowed",
-		"invalidPhoneInput": "Enter valid phone number",
-		"invalidLocationInput": "Only numbers are allowed",
-		"maxImageCountExceeded": "Only up to 4 images are allowed",
-		"invalidImageInput": "Upload file(s) in JPG, PNG, JPEG, GIF, AVIF, WEBP formats",
-	})
-    const openAddReport = async () => {
+        mandatoryErrorMsg: "This field is required",
+        invalidIntegerInput: "Only numbers are allowed",
+        invalidDecimalInput: "Only numbers are allowed",
+        invalidPhoneInput: "Enter valid phone number",
+        invalidLocationInput: "Only numbers are allowed",
+        maxImageCountExceeded: "Only up to 4 images are allowed",
+        invalidImageInput:
+            "Upload file(s) in JPG, PNG, JPEG, GIF, AVIF, WEBP formats",
+    });
+    const resetInvalidInputError = (event, question_id) => {
+        try {
+            event.preventDefault();
+            let value = event.target.value;
+            if (question_id == 12 && (!value || value == "")) {
+                setShowInvalidInputError_12(false);
+            }
+        } catch (err) {
+            console.log("err: ", err);
+        }
+    };
+    const openAddReport = () => {
         try {
             setShowmaintenanceForm(true);
         } catch (err) {}
     };
-    useEffect(async () => {
-		try {
+    useEffect(() => {
+        try {
             let errorMessageFields = errorMsgFields;
-			setErrorMsgFields({ ...errorMessageFields });
-			
-		} catch (err) {
-
-		}
-	}, []);
-    const handleChangeDisplayPage = async (event, value) => {
+            setErrorMsgFields({ ...errorMessageFields });
+        } catch (err) {}
+    }, []);
+    const handleChangeDisplayPage = (event, value) => {
         try {
             event.preventDefault();
             setDisplayPage(value);
         } catch (err) {}
     };
-    const validatePhoneNumber = async (value) => {
-		try {
-			let regex = /^[\+]?[\+[0-9]{0,5}]?[. -]?[({]?[0-9]{0,10}[)}]?[-\s\.{}]?[({]?[0-9]{0,10}[})]?[-\s\.{}]?[({]?[0-9]{4,15}?[})]?[-. ]?[0-9]{0,20}$/
-			return regex.test(value);
-		} catch (err) {
-
-		}
-	}
+    const validatePhoneNumber = (value) => {
+        try {
+            let regex =
+                /^[\+]?[\+[0-9]{0,5}]?[. -]?[({]?[0-9]{0,10}[)}]?[-\s\.{}]?[({]?[0-9]{0,10}[})]?[-\s\.{}]?[({]?[0-9]{4,15}?[})]?[-. ]?[0-9]{0,20}$/;
+            return regex.test(value);
+        } catch (err) {}
+    };
     const handlechange = (event) => {
         setSelectedValue(event.target.value);
     };
@@ -115,84 +134,128 @@ function Report() {
     const handlechange4 = (event) => {
         setSelectedValue4(event.target.value);
     };
-    const handleChangeDisplayvalue = (event) => {
+    const handleChangeDisplayvalue = (question_id, event) => {
         try {
             event.preventDefault();
             const name = event.target.name;
             const value = event.target.value;
             setinputvalue(value);
-            if (name == "community_name" && !value) {
-                seterror({ ...error, name: "Name is required" });
+            if (question_id == 2) {
+                if (value && value != "") {
+                    setShowError_2(false);
+                } else {
+                    setShowError_2(true);
+                }
             }
-            console.log(inputvalue);
-            console.log(name);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue1 = async (event) => {
+    const handleChangeDisplayvalue1 = (question_id, event) => {
         try {
             event.preventDefault();
 
             const value = event.target.value;
             setinputvalue1(value);
             console.log(inputvalue1);
+            if (question_id == 3) {
+                if (value && value != "") {
+                    setShowError_3(false);
+                } else {
+                    setShowError_3(true);
+                }
+            }
         } catch (err) {}
     };
-    const handleChangeDisplayvalue2 = async (event) => {
+    const handleChangeDisplayvalue2 = (question_id, event) => {
         try {
             event.preventDefault();
 
             const value = event.target.value;
             setinputvalue2(value);
             console.log(inputvalue2);
+            if (question_id == 4) {
+                if (value && value != "") {
+                    setShowError_4(false);
+                } else {
+                    setShowError_4(true);
+                }
+            }
         } catch (err) {}
     };
-    const handleChangeDisplayvalue3 = async (event) => {
+    const handleChangeDisplayvalue3 = (question_id, event) => {
         try {
             event.preventDefault();
 
             const value = event.target.value;
             setinputvalue3(value);
             console.log(inputvalue3);
+            if (question_id == 5) {
+                if (value && value != "") {
+                    setShowError_5(false);
+                } else {
+                    setShowError_5(true);
+                }
+            }
         } catch (err) {}
     };
-    const handleChangeDisplayvalue4 = async (event) => {
+    const handleChangeDisplayvalue4 = (question_id, event) => {
         try {
             event.preventDefault();
 
             const value = event.target.value;
             setinputvalue4(value);
             console.log(inputvalue4);
+            if (question_id == 6) {
+                if (value && value != "") {
+                    setShowError_6(false);
+                } else {
+                    setShowError_6(true);
+                }
+            }
         } catch (err) {}
     };
-    const handleChangeDisplayvalue5 = async (event) => {
+    const handleChangeDisplayvalue5 = (question_id, event) => {
         try {
             event.preventDefault();
 
             const value = event.target.value;
             setinputvalue5(value);
             console.log(inputvalue5);
+            if (question_id == 7) {
+                if (value && value != "") {
+                    setShowError_7(false);
+                } else {
+                    setShowError_7(true);
+                }
+            }
         } catch (err) {}
     };
-    const handleChangeDisplayvalue6 = async (event) => {
+    const handleChangeDisplayvalue6 = (question_id, event) => {
         try {
             event.preventDefault();
 
             const value = event.target.value;
             setinputvalue6(value);
             console.log(inputvalue6);
+            if (question_id == 8) {
+                if (value && value != "") {
+                    setShowError_8(false);
+                } else {
+                    setShowError_8(true);
+                }
+            }
         } catch (err) {}
     };
-    const handleChangeDisplayvalue7 = async (question_id,event) => {
+    const handleChangeDisplayvalue7 = (question_id, event) => {
         try {
             event.preventDefault();
 
             const value = event.target.value;
             setinputvalue7(value);
             if (question_id == 12) {
-                if(validatePhoneNumber(value)){
+                if (!validatePhoneNumber(value)) {
                     if (question_id == 12) {
-						setShowInvalidInputError_12(true);
-					}
+                        setShowInvalidInputError_12(true);
+                    }
                 } else {
                     setShowInvalidInputError_12(false);
                 }
@@ -207,25 +270,49 @@ function Report() {
             console.log(inputvalue7);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue8 = async (event) => {
+    const handleChangeDisplayvalue8 = (question_id, event) => {
         try {
             event.preventDefault();
 
             const value = event.target.value;
             setinputvalue8(value);
             console.log(inputvalue8);
+            if (question_id == 9) {
+                if (value && value != "") {
+                    setShowError_9(false);
+                } else {
+                    setShowError_9(true);
+                }
+            }
         } catch (err) {}
     };
-    const handleChangeDisplayvalue9 = async (event) => {
+    const handleChangeDisplayvalue9 = (question_id, event) => {
         try {
             event.preventDefault();
 
             const value = event.target.value;
             setinputvalue9(value);
             console.log(inputvalue9);
+            if (question_id == 10) {
+                if (!validatePhoneNumber(value)) {
+                    if (question_id == 10) {
+                        setShowInvalidInputError_10(true);
+                    }
+                } else {
+                    setShowInvalidInputError_10(false);
+                }
+            }
+            console.log(inputvalue7);
+            if (question_id == 10) {
+                if (value && value != "") {
+                    setShowError_10(false);
+                } else {
+                    setShowError_10(true);
+                }
+            }
         } catch (err) {}
     };
-    const handleChangeDisplayvalue10 = async (event) => {
+    const handleChangeDisplayvalue10 = (event) => {
         try {
             event.preventDefault();
 
@@ -234,7 +321,7 @@ function Report() {
             console.log(inputvalue10);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue11 = async (event) => {
+    const handleChangeDisplayvalue11 = (event) => {
         try {
             event.preventDefault();
 
@@ -243,7 +330,7 @@ function Report() {
             console.log(inputvalue11);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue12 = async (event) => {
+    const handleChangeDisplayvalue12 = (event) => {
         try {
             event.preventDefault();
 
@@ -252,7 +339,7 @@ function Report() {
             console.log(inputvalue12);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue13 = async (event) => {
+    const handleChangeDisplayvalue13 = (event) => {
         try {
             event.preventDefault();
 
@@ -261,7 +348,7 @@ function Report() {
             console.log(inputvalue13);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue14 = async (event) => {
+    const handleChangeDisplayvalue14 = (event) => {
         try {
             event.preventDefault();
 
@@ -270,7 +357,7 @@ function Report() {
             console.log(inputvalue14);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue15 = async (event) => {
+    const handleChangeDisplayvalue15 = (event) => {
         try {
             event.preventDefault();
 
@@ -279,7 +366,7 @@ function Report() {
             console.log(inputvalue15);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue16 = async (event) => {
+    const handleChangeDisplayvalue16 = (event) => {
         try {
             event.preventDefault();
 
@@ -288,7 +375,7 @@ function Report() {
             console.log(inputvalue16);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue17 = async (event) => {
+    const handleChangeDisplayvalue17 = (event) => {
         try {
             event.preventDefault();
 
@@ -297,7 +384,7 @@ function Report() {
             console.log(inputvalue17);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue18 = async (event) => {
+    const handleChangeDisplayvalue18 = (event) => {
         try {
             event.preventDefault();
 
@@ -306,7 +393,7 @@ function Report() {
             console.log(inputvalue18);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue19 = async (event) => {
+    const handleChangeDisplayvalue19 = (event) => {
         try {
             event.preventDefault();
 
@@ -315,7 +402,7 @@ function Report() {
             console.log(inputvalue19);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue20 = async (event) => {
+    const handleChangeDisplayvalue20 = (event) => {
         try {
             event.preventDefault();
 
@@ -324,7 +411,7 @@ function Report() {
             console.log(inputvalue20);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue21 = async (event) => {
+    const handleChangeDisplayvalue21 = (event) => {
         try {
             event.preventDefault();
 
@@ -333,7 +420,7 @@ function Report() {
             console.log(inputvalue21);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue22 = async (event) => {
+    const handleChangeDisplayvalue22 = (event) => {
         try {
             event.preventDefault();
 
@@ -342,7 +429,7 @@ function Report() {
             console.log(inputvalue22);
         } catch (err) {}
     };
-    const handleChangeDisplayvalue23 = async (event) => {
+    const handleChangeDisplayvalue23 = (event) => {
         try {
             event.preventDefault();
 
@@ -351,19 +438,19 @@ function Report() {
             console.log(inputvalue23);
         } catch (err) {}
     };
-    const closeAddReport = async () => {
+    const closeAddReport = () => {
         try {
             setShowmaintenanceForm(false);
             setDisplayPage(0);
         } catch (err) {}
     };
-    const changeReportType = async (event) => {
+    const changeReportType = (event) => {
         try {
             let value = parseInt(event.target.value);
             setReportType(value);
         } catch (err) {}
     };
-    const selectPartner = async (event) => {
+    const selectPartner = (event) => {
         try {
             let value = event.target.value;
             setSelectedCustomerId(value);
@@ -474,7 +561,7 @@ function Report() {
                                     <div className="questionsFormat">
                                         <div className="spanDiv">
                                             <div className="questionDisplay">
-                                                Community Name
+                                                Community Name*
                                             </div>
                                         </div>
                                         <div className="answerDisplay">
@@ -485,10 +572,17 @@ function Report() {
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
                                                 value={inputvalue}
-                                                errorMessage={error.name}
-                                                handleSelectValueChange={(e) =>
-                                                    handleChangeDisplayvalue(e)
+                                                showError={showError_2}
+                                                errorMessage={
+                                                    errorMsgFields.mandatoryErrorMsg
                                                 }
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue(
+                                                        2,
+                                                        e
+                                                    )
+                                                }
+                                                maxLength="30"
                                             />
                                         </div>
                                     </div>
@@ -509,7 +603,15 @@ function Report() {
                                                 style={{ display: "block" }}
                                                 value={inputvalue1}
                                                 handleSelectValueChange={(e) =>
-                                                    handleChangeDisplayvalue1(e)
+                                                    handleChangeDisplayvalue1(
+                                                        3,
+                                                        e
+                                                    )
+                                                }
+                                                maxLength="30"
+                                                showError={showError_3}
+                                                errorMessage={
+                                                    errorMsgFields.mandatoryErrorMsg
                                                 }
                                             />
                                         </div>
@@ -529,8 +631,16 @@ function Report() {
                                                 style={{ display: "block" }}
                                                 value={inputvalue2}
                                                 handleSelectValueChange={(e) =>
-                                                    handleChangeDisplayvalue2(e)
+                                                    handleChangeDisplayvalue2(
+                                                        4,
+                                                        e
+                                                    )
                                                 }
+                                                showError={showError_4}
+                                                errorMessage={
+                                                    errorMsgFields.mandatoryErrorMsg
+                                                }
+                                                maxLength="30"
                                             />
                                         </div>
                                     </div>
@@ -548,7 +658,14 @@ function Report() {
                                                 style={{ display: "block" }}
                                                 value={inputvalue3}
                                                 handleSelectValueChange={(e) =>
-                                                    handleChangeDisplayvalue3(e)
+                                                    handleChangeDisplayvalue3(
+                                                        5,
+                                                        e
+                                                    )
+                                                }
+                                                showError={showError_5}
+                                                errorMessage={
+                                                    errorMsgFields.mandatoryErrorMsg
                                                 }
                                             />
                                         </div>
@@ -568,7 +685,14 @@ function Report() {
                                                 style={{ display: "block" }}
                                                 value={inputvalue4}
                                                 handleSelectValueChange={(e) =>
-                                                    handleChangeDisplayvalue4(e)
+                                                    handleChangeDisplayvalue4(
+                                                        6,
+                                                        e
+                                                    )
+                                                }
+                                                showError={showError_6}
+                                                errorMessage={
+                                                    errorMsgFields.mandatoryErrorMsg
                                                 }
                                             />
                                         </div>
@@ -593,7 +717,14 @@ function Report() {
                                                 name="reportedissue"
                                                 value={inputvalue5}
                                                 handleSelectValueChange={(e) =>
-                                                    handleChangeDisplayvalue5(e)
+                                                    handleChangeDisplayvalue5(
+                                                        7,
+                                                        e
+                                                    )
+                                                }
+                                                showError={showError_7}
+                                                errorMessage={
+                                                    errorMsgFields.mandatoryErrorMsg
                                                 }
                                             />
                                         </div>
@@ -622,9 +753,18 @@ function Report() {
                                                 style={{ display: "block" }}
                                                 value={inputvalue6}
                                                 handleSelectValueChange={(e) =>
-                                                    handleChangeDisplayvalue6(e)
+                                                    handleChangeDisplayvalue6(
+                                                        8,
+                                                        e
+                                                    )
                                                 }
+                                                showError={showError_8}
+                                                errorMessage={
+                                                    errorMsgFields.mandatoryErrorMsg
+                                                }
+                                                maxLength="30"
                                             />
+
                                             <Input
                                                 key={"PHN_NUMBER1"}
                                                 type="text"
@@ -633,11 +773,28 @@ function Report() {
                                                 customClassName={"width-50"}
                                                 style={{ display: "block" }}
                                                 value={inputvalue7}
-                                                errorMessage={showError_12 ? errorMsgFields.invalidPhoneInput : errorMsgFields.invalidPhoneInput} 
-                                                showError={ showError_12|| showInvalidInputError_12}
-                                                handleSelectValueChange={(e) =>
-                                                    handleChangeDisplayvalue7(12,e)
+                                                errorMessage={
+                                                    showError_12
+                                                        ? errorMsgFields.mandatoryErrorMsg
+                                                        : errorMsgFields.invalidPhoneInput
                                                 }
+                                                showError={
+                                                    showError_12 ||
+                                                    showInvalidInputError_12
+                                                }
+                                                resetInvalidInputError={(e) =>
+                                                    resetInvalidInputError(
+                                                        e,
+                                                        12
+                                                    )
+                                                }
+                                                handleSelectValueChange={(e) =>
+                                                    handleChangeDisplayvalue7(
+                                                        12,
+                                                        e
+                                                    )
+                                                }
+                                                maxLength="30"
                                             />
                                         </div>
                                     </div>
@@ -657,8 +814,16 @@ function Report() {
                                                 style={{ display: "block" }}
                                                 value={inputvalue8}
                                                 handleSelectValueChange={(e) =>
-                                                    handleChangeDisplayvalue8(e)
+                                                    handleChangeDisplayvalue8(
+                                                        9,
+                                                        e
+                                                    )
                                                 }
+                                                showError={showError_9}
+                                                errorMessage={
+                                                    errorMsgFields.mandatoryErrorMsg
+                                                }
+                                                maxLength="30"
                                             />
                                             <Input
                                                 key={"PHN_NUMBER1"}
@@ -669,8 +834,27 @@ function Report() {
                                                 style={{ display: "block" }}
                                                 value={inputvalue9}
                                                 handleSelectValueChange={(e) =>
-                                                    handleChangeDisplayvalue9(e)
+                                                    handleChangeDisplayvalue9(
+                                                        10,
+                                                        e
+                                                    )
                                                 }
+                                                errorMessage={
+                                                    showError_10
+                                                        ? errorMsgFields.mandatoryErrorMsg
+                                                        : errorMsgFields.invalidPhoneInput
+                                                }
+                                                resetInvalidInputError={(e) =>
+                                                    resetInvalidInputError(
+                                                        e,
+                                                        10
+                                                    )
+                                                }
+                                                showError={
+                                                    showError_10 ||
+                                                    showInvalidInputError_10
+                                                }
+                                                maxLength="30"
                                             />
                                         </div>
                                     </div>
@@ -898,8 +1082,20 @@ function Report() {
                                                     />
                                                 </RadioGroup>
 
-                                                {status === 1 && (
-                                                    <Input
+                                               
+                                            </>
+                                        </div>
+                                    </div>
+                                    {status === 1 && (
+                                                     <div className="questionsFormat">
+                                                     <div className="spanDiv">
+                                                         <div className="questionDisplay">
+                                                         Serial Number
+                                        
+                                                         </div>
+                                                     </div>
+                                                     <div className="answerDisplay">
+                                                     <Input
                                                         type="text"
                                                         label="Serial number"
                                                         customClassName={
@@ -917,10 +1113,10 @@ function Report() {
                                                             )
                                                         }
                                                     />
+                                                     </div>
+                                                 </div>
+                                                   
                                                 )}
-                                            </>
-                                        </div>
-                                    </div>
 
                                     <div className="questionsFormat">
                                         <div className="spanDiv">
@@ -1112,7 +1308,7 @@ function Report() {
                                                         label={"Yes"}
                                                         id="Yes"
                                                         checked={status3 === 3}
-                                                        //	onChange={(event) => toggleRetrofitOption(event)}
+                                                        // onChange={(event) => toggleRetrofitOption(event)}
                                                         onClick={(e) =>
                                                             radioHandler3(3)
                                                         }
@@ -1132,10 +1328,22 @@ function Report() {
                                                     />
                                                 </RadioGroup>
 
-                                                {status3 === 3 && (
-                                                    <Input
+                                              
+                                            </>
+                                        </div>
+                                    </div>
+                                    {status3 === 3 && (
+                                        <div className="questionsFormat">
+                                        <div className="spanDiv">
+                                            <div className="questionDisplay">
+                                           If so, Please describe:
+                           
+                                            </div>
+                                        </div>
+                                        <div className="answerDisplay">
+                                        <Input
                                                         type="text"
-                                                        label="– if so, please describe:"
+
                                                         customClassName={
                                                             "width-50"
                                                         }
@@ -1151,15 +1359,16 @@ function Report() {
                                                             )
                                                         }
                                                     />
-                                                )}
-                                            </>
                                         </div>
                                     </div>
+                                                 
+                                                )}
+
                                     <div className="questionsFormat">
                                         <div className="spanDiv">
                                             <div className="questionDisplay">
                                                 Peak handle torque
-                                                <p>(requires torque wrench)</p>
+                                                <p className="para">(requires torque wrench)</p>
                                             </div>
                                         </div>
                                         <div
@@ -1168,7 +1377,7 @@ function Report() {
                                         >
                                             <Input
                                                 type="text"
-                                                rows="3"
+                                                rows="2"
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
@@ -1186,7 +1395,7 @@ function Report() {
                                             <div className="questionDisplay">
                                                 Handle rotations to fill 20 L
                                                 container
-                                                <p>(requires 20 L container)</p>
+                                                <p className="para">(requires 20 L container)</p>
                                             </div>
                                         </div>
                                         <div
@@ -1195,7 +1404,7 @@ function Report() {
                                         >
                                             <Input
                                                 type="text"
-                                                rows="3"
+                                                rows="2"
                                                 label=""
                                                 customClassName="input-container-5"
                                                 style={{ display: "block" }}
@@ -1212,10 +1421,7 @@ function Report() {
                                         <div className="spanDiv">
                                             <div className="questionDisplay">
                                                 Is gearbox seal leaking?
-                                                <p>
-                                                    (visual assessment – take
-                                                    photo)
-                                                </p>
+                                        
                                             </div>
                                         </div>
                                         <div className="ca-site-contact-details">
@@ -1224,6 +1430,7 @@ function Report() {
                                                     aria-label="position"
                                                     name="position"
                                                     customClassName={"width-50"}
+                                                    row
                                                 >
                                                     <FormControlLabel
                                                         value={"Yes"}
@@ -1233,7 +1440,7 @@ function Report() {
                                                         label={"Yes"}
                                                         id="Yes"
                                                         checked={status4 === 5}
-                                                        //	onChange={(event) => toggleRetrofitOption(event)}
+                                                        // onChange={(event) => toggleRetrofitOption(event)}
                                                         onClick={(e) =>
                                                             radioHandler4(5)
                                                         }
@@ -1253,25 +1460,40 @@ function Report() {
                                                     />
                                                 </RadioGroup>
 
-                                                {status4 === 5 && (
+                                            
+                                            </>
+                                        </div>
+                                    </div>
+                                    {status4 === 5 && (
                                                     <>
-                                                        <label>
+                                                <div className="questionsFormat">
+                                                     <div className="spanDiv">
+                                                         <div className="questionDisplay">
+                                                         (visual assessment – take photo)
+
+                                        
+                                                         </div>
+                                                     </div>
+                                                     <div className="answerDisplay"
+                                                     style={{ display: "block" }}>
+                                                     <label>
                                                             <Button
                                                                 className="site-image-upload-button"
                                                                 variant="contained"
                                                                 color="primary"
                                                                 component="span"
+                                                              
                                                             >
                                                                 {"CHOOSE FILES"}
                                                             </Button>
                                                         </label>
 
+                                                     </div>
+                                                 </div>
+                                                        
                                                         <div className="testimonyFiles"></div>
                                                     </>
                                                 )}
-                                            </>
-                                        </div>
-                                    </div>
                                 </div>
                             ) : displayPage == 3 ? (
                                 <>
@@ -1296,6 +1518,8 @@ function Report() {
                                                         customClassName={
                                                             "width-50"
                                                         }
+                                                        
+                                                        
                                                     >
                                                         <FormControlLabel
                                                             value={"Yes"}
@@ -1337,21 +1561,18 @@ function Report() {
                                             <div className="questionsFormat">
                                                 <div className="spanDiv">
                                                     <div className="questionDisplay">
-                                                        If pump has not been
-                                                        maintenanced for more
-                                                        than 1 year, ask
-                                                        community member:
-                                                        <p>
+                                                      
+                                                        
                                                             “How has the
                                                             LifePump benefited
                                                             your community?”
-                                                        </p>
+                                                        
                                                     </div>
                                                 </div>
                                                 <div className="answerDisplay">
                                                     <Input
                                                         type="text"
-                                                        rows="5"
+                                                        rows="3"
                                                         label=""
                                                         customClassName={
                                                             "input-container-5"
@@ -1376,21 +1597,18 @@ function Report() {
                                             <div className="questionsFormat">
                                                 <div className="spanDiv">
                                                     <div className="questionDisplay">
-                                                        If pump has been
-                                                        maintenanced within the
-                                                        last 1 year, ask
-                                                        community member:
-                                                        <p>
+                                                       
+                                                        
                                                             “Do you understand
                                                             what the problem was
                                                             with your LifePump?”{" "}
-                                                        </p>
+                                                        
                                                     </div>
                                                 </div>
                                                 <div className="answerDisplay">
                                                     <Input
                                                         type="text"
-                                                        rows="5"
+                                                        rows="3"
                                                         label=""
                                                         customClassName={
                                                             "input-container-5"
